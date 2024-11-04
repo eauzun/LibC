@@ -6,15 +6,15 @@
 /*   By: emuzun <emuzun@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/28 15:48:35 by emuzun            #+#    #+#             */
-/*   Updated: 2024/10/28 15:48:36 by emuzun           ###   ########.fr       */
+/*   Updated: 2024/11/03 18:06:58 by emuzun           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int ft_isprint (int c)
+int	ft_isprint(int c)
 {
-    if(c<127 && c > 31)
-    {
-        return 1;
-    }
-    return 0;
+	if (c < 127 && c > 31)
+	{
+		return (1);
+	}
+	return (0);
 }

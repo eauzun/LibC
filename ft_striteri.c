@@ -6,19 +6,18 @@
 /*   By: emuzun <emuzun@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/28 14:40:17 by emuzun            #+#    #+#             */
-/*   Updated: 2024/10/28 14:50:35 by emuzun           ###   ########.fr       */
+/*   Updated: 2024/11/03 18:13:49 by emuzun           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void ft_striteri(char *s, void (*f)(unsigned int, char*))
+void	ft_striteri(char *s, void (*f)(unsigned int, char*))
 {
-	size_t i;
-	
+	size_t	i;
+
 	i = 0;
-	
-	if(!s)
+	if (!s)
 		return ;
 	while (s[i])
 	{

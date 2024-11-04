@@ -1,27 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memcmp.c                                        :+:      :+:    :+:   */
+/*   ft_strrchr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: emuzun <emuzun@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/10/22 01:33:12 by emuzun            #+#    #+#             */
-/*   Updated: 2024/11/03 18:53:56 by emuzun           ###   ########.fr       */
+/*   Created: 2024/11/03 17:40:57 by emuzun            #+#    #+#             */
+/*   Updated: 2024/11/03 18:11:33 by emuzun           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_memcmp(const void *s1, const void *s2, size_t n)
+char	*ft_strrchr(const char *str, int c)
 {
-	size_t	i;
+	int		i;
+	char	*ptr;
 
 	i = 0;
-	while (i < n)
+	ptr = 0;
+	while (str[i])
 	{
-		if (((unsigned char *)s1)[i] != ((unsigned char *)s2)[i])
-			return (((unsigned char *)s1)[i] - ((unsigned char *)s2)[i]);
+		if (str[i] == (char)c)
+			ptr = (char *)(str + i);
 		i++;
 	}
-	return (0);
+	if (str[i] == (char)c)
+		ptr = (char *)(str + i);
+	return (ptr);
 }

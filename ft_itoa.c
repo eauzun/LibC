@@ -6,7 +6,7 @@
 /*   By: emuzun <emuzun@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/27 18:52:04 by emuzun            #+#    #+#             */
-/*   Updated: 2024/11/01 20:03:07 by emuzun           ###   ########.fr       */
+/*   Updated: 2024/11/03 18:02:04 by emuzun           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,8 +36,8 @@ static void	execute(long nb, char *c, int *i)
 	if (nb < 0)
 	{
 		nb *= -1;
-		*c = '-';
-		*i++;
+		c[*i] = '-';
+		(*i)++;
 	}
 	if (nb >= 10)
 	{
@@ -46,8 +46,8 @@ static void	execute(long nb, char *c, int *i)
 	}
 	else
 	{
-		*(c + *i) = nb + '0';
-		*i += 1;
+		c[*i] = nb + '0';
+		(*i)++;
 	}
 }
 
@@ -61,9 +61,9 @@ char	*ft_itoa(int n)
 	i = 0;
 	nb = n;
 	size = size_int(nb);
-	str = malloc(sizeof(char) * size + 1);
+	str = malloc(sizeof(char) * (size + 1));
 	if (!str)
-		return (0);
+		return (NULL);
 	execute(nb, str, &i);
 	str[i] = '\0';
 	return (str);

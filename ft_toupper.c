@@ -6,13 +6,13 @@
 /*   By: emuzun <emuzun@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/22 00:45:49 by emuzun            #+#    #+#             */
-/*   Updated: 2024/10/22 01:30:11 by emuzun           ###   ########.fr       */
+/*   Updated: 2024/11/03 18:09:40 by emuzun           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int ft_toupper(int c)
+int	ft_toupper(int c)
 {
-    if (c < 123 && c > 96)
-       c -= 32;
-    return (c);
+	if (c >= 'a' && c <= 'z')
+		c -= 32;
+	return (c);
 }
