@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   libft.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: emuzun <emuzun@student.42.fr>              +#+  +:+       +#+        */
+/*   By: emuzun <emuzun@student.42istanbul.com.t    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/28 15:45:33 by emuzun            #+#    #+#             */
-/*   Updated: 2024/11/03 21:35:21 by emuzun           ###   ########.fr       */
+/*   Updated: 2024/11/04 21:20:14 by emuzun           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,8 +20,8 @@ typedef struct s_size_list
 {
 	size_t	start;
 	size_t	end;
-	size_t	kelime;
-} t_size_list;
+	size_t	word;
+}	t_size_list;
 
 void		ft_bzero(void *s, size_t n);
 void		*ft_calloc(size_t nbyte, size_t size);

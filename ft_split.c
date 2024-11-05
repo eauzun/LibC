@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_split.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: emuzun <emuzun@student.42.fr>              +#+  +:+       +#+        */
+/*   By: emuzun <emuzun@student.42istanbul.com.t    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/03 21:08:27 by emuzun            #+#    #+#             */
-/*   Updated: 2024/11/03 21:39:58 by emuzun           ###   ########.fr       */
+/*   Updated: 2024/11/04 21:20:57 by emuzun           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,19 +43,19 @@ static void	free_split(char **str, size_t words)
 
 static int	split_helper(char ***str, char const *s, t_size_list *a)
 {
-	(*str)[a->kelime] = ft_substr(s, a->start, a->end - a->start);
-	if (!(*str)[a->kelime])
+	(*str)[a->word] = ft_substr(s, a->start, a->end - a->start);
+	if (!(*str)[a->word])
 		return (0);
-	(a->kelime)++;
+	(a->word)++;
 	a->start = a->end;
 	return (1);
 }
 
-static void init_size_list(t_size_list *a)
+static void	init_size_list(t_size_list *a)
 {
 	a->start = 0;
 	a->end = 0;
-	a->kelime = 0;
+	a->word = 0;
 }
 
 char	**ft_split(char const *s, char c)
@@ -63,6 +63,9 @@ char	**ft_split(char const *s, char c)
 	char		**str;
 	t_size_list	a;	
 
+	init_size_list(&a);
+	if (!s)
+		return (NULL);
 	init_size_list(&a);
 	if (!s)
 		return (NULL);
@@ -78,7 +81,7 @@ char	**ft_split(char const *s, char c)
 			a.end++;
 		if (a.start < a.end)
 			if (!split_helper(&str, s, &a))
-				return (free_split(str, a.kelime), NULL);
+				return (free_split(str, a.word), NULL);
 	}
 	return (str);
 }

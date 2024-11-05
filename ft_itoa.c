@@ -3,68 +3,60 @@
 /*                                                        :::      ::::::::   */
 /*   ft_itoa.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: emuzun <emuzun@student.42.fr>              +#+  +:+       +#+        */
+/*   By: emuzun <emuzun@student.42istanbul.com.t    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/27 18:52:04 by emuzun            #+#    #+#             */
-/*   Updated: 2024/11/03 18:02:04 by emuzun           ###   ########.fr       */
+/*   Updated: 2024/11/04 21:49:26 by emuzun           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static int	size_int(long nb)
+static size_t	count_size(long num)
 {
-	int	count;
+	size_t	size;
 
-	count = 0;
-	if (nb < 0)
+	size = 0;
+	if (!num)
+		return (1);
+	else if (num < 0)
 	{
-		nb *= -1;
-		count++;
+		num = -num;
+		size++;
 	}
-	while (nb >= 10)
+	while (num > 0)
 	{
-		nb /= 10;
-		count++;
+		size++;
+		num /= 10;
 	}
-	count++;
-	return (count);
-}
-
-static void	execute(long nb, char *c, int *i)
-{
-	if (nb < 0)
-	{
-		nb *= -1;
-		c[*i] = '-';
-		(*i)++;
-	}
-	if (nb >= 10)
-	{
-		execute(nb / 10, c, i);
-		execute(nb % 10, c, i);
-	}
-	else
-	{
-		c[*i] = nb + '0';
-		(*i)++;
-	}
+	return (size);
 }
 
 char	*ft_itoa(int n)
 {
-	long	nb;
+	size_t	size;
+	size_t	i;
 	char	*str;
-	int		size;
-	int		i;
+	long	num;
 
 	i = 0;
-	nb = n;
-	size = size_int(nb);
+	num = (long)n;
+	size = count_size(num);
 	str = malloc(sizeof(char) * (size + 1));
 	if (!str)
 		return (NULL);
-	execute(nb, str, &i);
-	str[i] = '\0';
+	if (!num)
+		str[0] = '0';
+	if (num < 0)
+	{
+		num = -num;
+		str[0] = '-';
+	}
+	while (num > 0)
+	{
+		str[size - 1 - i++] = num % 10 + 48;
+		num /= 10;
+	}
+	str[size] = '\0';
 	return (str);
 }
