@@ -1,1 +1,1 @@
-# 42-LibFT
+# This repository is my own specialized c library. This library contains many string and memory manipulation funtions. I created this library for personal requirements.
